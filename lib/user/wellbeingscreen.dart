@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:psychological_well_being/user/relaxationmusic.dart';
 import 'package:psychological_well_being/user/relaxationvideo.dart';
+import 'package:psychological_well_being/user/yogavideo.dart';
 import 'PositiveAffirmations.dart';
 import 'RelaxationExercises.dart';
 
@@ -46,32 +48,82 @@ class _WellBeingScreenState extends State<WellBeingScreen>
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _openMoodSelectionDialog();
-              },
-              child: Text('Select Mood'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openMoodSelectionDialog();
+                    },
+                    child: Text('Select Mood'),
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openRelaxationExercises();
+                    },
+                    child: Text('Relaxation Exercises'),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _openRelaxationExercises();
-              },
-              child: Text('Relaxation Exercises'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openAffirmations();
+                    },
+                    child: Text('Positive Affirmations'),
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openRelaxationVideo();
+                    },
+                    child: Text('Relaxation Video'),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _openAffirmations();
-              },
-              child: Text('Positive Affirmations'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _openRelaxationVideo();
-              },
-              child: Text('Relaxation Video'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openRelaxationMusic();
+                    },
+                    child: Text('Positive Music'),
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _openRelaxationyogaVideo();
+                    },
+                    child: Text('Yoga Video'),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -150,11 +202,28 @@ class _WellBeingScreenState extends State<WellBeingScreen>
   }
 
   _openRelaxationVideo() {
-    // Placeholder for navigation to Relaxation Video screen
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => RelaxationVideoScreen(),
+      ),
+    );
+  }
+
+  _openRelaxationyogaVideo() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RelaxationyogaVideoScreen(),
+      ),
+    );
+  }
+
+  _openRelaxationMusic() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MusicPlayerScreen(),
       ),
     );
   }
